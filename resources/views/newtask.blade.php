@@ -12,10 +12,10 @@
    									</div>
 								</div>
 								<div class="space-y-6">
-        					<flux:input name="task_name" label="Task name" type="text" placeholder="Your task name" />
+        					<flux:input name="task_name" label="Task name" badge="Required" type="text" placeholder="Your task name" required />
         					<flux:field>
             		<div class="mb-3">
-                		<flux:label>Description</flux:label>
+                		<flux:label badge="Optional">Description</flux:label>
             		</div>
             				<flux:input name="task_description" type="text" placeholder="Your description" />
         					</flux:field>

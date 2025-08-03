@@ -4,7 +4,9 @@
 						<div class="w-[50px]">
 						<flux:heading size="xl">Add a new task to the list</flux:heading>
 						<a href="{{ route('newtask') }}" class="mt-3"><flux:button icon="plus" class="mt-3">New Task</flux:button></a>
-						</div>		
+						</div>
+					@else
+						<flux:heading size="xl">My Tasks</flux:heading>
 			@endif
         <div class="grid auto-rows-min gap-4 md:grid-cols-3">
 						@foreach($tasks as $task)
@@ -19,23 +21,23 @@
 									</flux:modal.trigger>
 
 									<flux:modal name="edit-task-{{ $task->id }}" class="md:w-96" variant="flyout">
-<form action="/dashboard/{{ $task->id }}" method="POST">
-{{ csrf_field() }}
-{{ method_field('PUT') }}
-<div class="space-y-6">
-        <div>
-            <flux:heading size="lg">Update Task</flux:heading>
-            <flux:text class="mt-2">Make changes to your task details.</flux:text>
-        </div>
-        <flux:input label="Task name" type="text" name="task_name" placeholder="" />
-        <flux:input label="Task description" type="text" name="task_description" placeholder="" />
-        <div class="flex">
-            <flux:spacer />
-            <flux:button type="submit" variant="primary">Save changes</flux:button>
-        </div>
-    </div>
-</form>
-</flux:modal>
+										<form action="/dashboard/{{ $task->id }}" method="POST">
+										{{ csrf_field() }}
+										{{ method_field('PUT') }}
+									<div class="space-y-6">
+        						<div>
+            					<flux:heading size="lg">Update Task</flux:heading>
+            					<flux:text class="mt-2">Make changes to your task details.</flux:text>
+        						</div>
+        						<flux:input label="Task name" type="text" name="task_name" placeholder="{{ $task->task_name }}" />
+        						<flux:input label="Task description" type="text" name="task_description" placeholder="{{ $task->task_description }}" />
+        					<div class="flex">
+            				<flux:spacer />
+            				<flux:button type="submit" variant="primary">Save changes</flux:button>
+        					</div>
+    							</div>
+										</form>
+									</flux:modal>
 
 									<form action="/dashboard/{{ $task->id }}" method="POST">
 									{{ csrf_field() }}
