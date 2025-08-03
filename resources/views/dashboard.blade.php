@@ -29,8 +29,8 @@
             					<flux:heading size="lg">Update Task</flux:heading>
             					<flux:text class="mt-2">Make changes to your task details.</flux:text>
         						</div>
-        						<flux:input label="Task name" type="text" name="task_name" placeholder="{{ $task->task_name }}" />
-        						<flux:input label="Task description" type="text" name="task_description" placeholder="{{ $task->task_description }}" />
+        						<flux:input label="Task name" type="text" name="task_name" value="{{ $task->task_name }}" />
+        						<flux:input label="Task description" type="text" name="task_description" value="{{ $task->task_description }}" />
         					<div class="flex">
             				<flux:spacer />
             				<flux:button type="submit" variant="primary">Save changes</flux:button>

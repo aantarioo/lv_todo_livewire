@@ -40,12 +40,7 @@ Route::post('newtask', function (Request $request) {
 		$task = new Task;
 		$task->task_name = $request->task_name;
 		$task->task_description = $request->task_description;
-
-		Task::create([
-				'task_name' => $request->task_name,
-				'task_description' => $request->task_description,
-				'user_id' => Auth::user()->id,
-		]);
+		$task->user_id = Auth::user()->id;
 
 		$task->save();
 
